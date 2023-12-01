@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      @entryPointStyles('app')
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  </head>
+  <body>
+  		<header class="w-full px-6 bg-white">
+  			<div class="container mx-auto max-w-4xl md:flex justify-between items-center">
+  				<a href="#" class="block py-6 w-full text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-center items-center">
+  					Интернет-магазин
+  				</a>
+  				<div class="w-full md:w-auto mb-6 md:mb-0 text-center md:text-right">
+  					     @if (auth.user)
+                    <a class="inline-block no-underline bg-black text-white text-sm py-2 px-3"  href="{{ route('auth.logout') }}">Выход</a>
+                   @else
+                    <a class="inline-block no-underline bg-black text-white text-sm py-2 px-3"  href="{{ route('auth.login') }}">Вход</a>
+                    <a class="inline-block no-underline bg-black text-white text-sm py-2 px-3" href="{{ route('auth.register') }}">Регистрация</a>
+                  @endif
+  				</div>
+  			</div>
+  		</header>
+  		<!-- /header -->
+
+  		<!-- navigation -->
+  		<nav class="w-full bg-white md:pt-0 px-6 shadow-lg relative z-20 border-t border-b border-gray-400">
+  			<div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
+  				<div class="w-full md:w-1/2 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
+  					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400">Home</a>
+  					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400">Products</a>
+  					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400">About Us</a>
+  					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-400">News</a>
+  					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline">Contact</a>
+  				</div>
+  			</div>
+  		</nav>
+    @!section('body')
+
+    <footer class="footer">
+    </footer>
+  </body>
+</html>

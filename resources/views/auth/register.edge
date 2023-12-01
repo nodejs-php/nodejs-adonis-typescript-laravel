@@ -1,21 +1,33 @@
-<form action="{{ route('auth.register') }}" method="POST">
-  <label>
-    Email
-    <input type="email" name="email" value="{{ flashMessages.get('email') ?? '' }}" />
-    @if (flashMessages.has('errors.email'))
-      <small style="color: red;">
-        {{ flashMessages.get('errors.email') }}
-      </small>
-    @endif
-  </label>
-  <label>
-    Password
-    <input type="password" name="password" />
-    @if (flashMessages.has('errors.password'))
-      <small style="color: red;">
-        {{ flashMessages.get('errors.password') }}
-      </small>
-    @endif
-  </label>
-  <button type="submit">Register</button>
-</form>
+@layout('layouts/main')
+@set('title', 'Регистрация')
+@section('body')
+		<div class="min-h-screen w-full p-6 flex justify-center">
+    		<div class="w-full max-w-xs">
+    			<div class="bg-white border p-8 shadow rounded w-full mb-6">
+		            <h1 class="mb-6 text-lg text-gray-900 font-thin">Регистрация</h1>
+		            <form action="{{ route('auth.register') }}" method="POST">
+		                <fieldset class="mb-4">
+		                    <label class="block text-sm text-gray-900 mb-2">Почта</label>
+		                    <input id="uid" type="email" class="block w-full rounded-sm border bg-white py-2 px-3 text-sm" name="uid" required autofocus value="{{ flashMessages.get('email') ?? '' }}">
+		                  @if (flashMessages.has('errors.email'))
+                        <small style="color: red;">
+                          {{ flashMessages.get('errors.email') }}
+                        </small>
+                      @endif
+		                </fieldset>
+		                <fieldset class="mb-4">
+		                    <input id="password" type="password" class="block w-full rounded-sm border bg-white py-2 px-3 text-sm" name="password" required>
+		                    @if (flashMessages.has('errors.password'))
+                          <small style="color: red;">
+                            {{ flashMessages.get('errors.password') }}
+                          </small>
+                        @endif
+		                </fieldset>
+		                <button type="submit" class="block w-full bg-blue-600 text-white rounded-sm py-3 text-sm tracking-wide">
+		                    Войти
+		                </button>
+		            </form>
+		        </div>
+        		</div>
+		</div>
+@end
