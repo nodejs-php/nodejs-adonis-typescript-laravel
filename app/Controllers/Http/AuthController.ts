@@ -21,7 +21,6 @@ export default class AuthController {
       password: schema.string({}, [rules.minLength(8)]),
     })
     const data = await request.validate({ schema: userSchema })
-
     const user = await User.create(data)
     await auth.login(user)
 

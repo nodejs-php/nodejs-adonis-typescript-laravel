@@ -1,10 +1,10 @@
-@layout('layouts/main')
+@layout('layouts/auth')
 @set('title', 'Вход')
 @section('body')
 		<div class="min-h-screen w-full p-6 flex justify-center">
     		<div class="w-full max-w-xs">
     			<div class="bg-white border p-8 shadow rounded w-full mb-6">
-		            <h1 class="mb-6 text-lg text-gray-900 font-thin">Login to your account</h1>
+		            <h1 class="mb-6 text-lg text-gray-900 font-thin">Вход</h1>
 		            <form action="{{ route('auth.login') }}" method="POST">
                   @if (flashMessages.has('form'))
                     <div role="alert">
